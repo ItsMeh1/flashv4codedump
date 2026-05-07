@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash v4</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar-container"> <!--Sidebar w/ btns-->
+        <div class="sidebar-content">
+
+            <div class="nav-group">
+              <div class="nav-item active" id="homeBtn" onclick="openPanel('home')"> 
+                 <i data-lucide="house" size="22"></i>
+                 <div class="tooltip">Home</div>
+              </div>
+            </div>
+
+            <div class="nav-group">
+                <div class="nav-item" onclick="openPanel('games')">
+                    <i data-lucide="gamepad-2" size="22"></i>
+                    <div class="tooltip">Games</div>
+                </div>
+                <div class="nav-item" id="browserBtn" onclick="openPanel('browser')">
+                    <i data-lucide="globe" size="22"></i>
+                    <div class="tooltip">Browser</div>
+                </div>
+                <div class="nav-item" id="moviesBtn" onclick="openPanel('movies')">
+                    <i data-lucide="video" size="22"></i>
+                    <div class="tooltip">Movies and TV</div>
+                </div>
+                <div class="nav-item" id="musciBtn" onclick="openPanel('music')">
+                    <i data-lucide="music" size="22"></i>
+                    <div class="tooltip">Music</div>
+                </div>
+                <div class="nav-item" id="aiButton" onclick="openPanel('ai')">
+                    <i data-lucide="sparkles" size="22"></i>
+                    <div class="tooltip">AI Tools</div>
+                </div>
+                <div class="nav-item" id="chatroomBtn" onclick="openPanel('chatroom')">
+                    <i data-lucide="message-square" size="22"></i>
+                    <div class="tooltip">Chatrooms</div>
+                </div>
+            </div>
+
+            <div class="nav-group" style="margin-bottom: 20px;">
+                <div class="nav-item">
+                    <i data-lucide="user-cog" size="22"></i>
+                    <div class="tooltip">Profile</div>
+                </div>
+                <div class="nav-item" id="settingsBtn" onclick="openPanel('settings')">
+                    <i data-lucide="settings" size="22"></i>
+                    <div class="tooltip">Settings</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="notch">
+            <i data-lucide="chevron-right" size="20"></i>
+        </div>
+    </div>
+
+    <main class="main-viewport" id="gamesFrame"> <!--Games frame via Arc+-->
+      <iframe 
+          src="https://itsmeh1.github.io/arcplus/?.classlink.com" 
+         class="game-frame"
+         title="Arc+ Game Content">
+      </iframe>
+    </main>
+
+    <main class="main-viewport" id="homeFrame"> <!--Home frame-->
+      <iframe 
+         src="home.html" 
+         class="game-frame"
+         title="Home Frame Content"
+         id="homeIFRAME">
+      </iframe>
+    </main>
+
+    <main class="main-viewport" id="errorFrame"> <!--Error frame-->
+      <iframe 
+         src="error.html" 
+         class="game-frame"
+         title="Error Frame Content"
+         id="errorIFRAME">
+      </iframe>
+    </main>
+
+    <main class="main-viewport" id="moviesFrame"> <!--Movies & TV frame via Novastream-->
+      <iframe 
+         src="https://novastream.vercel.app/?.classroom.google.com" 
+         class="game-frame"
+         title="Home Frame Content"
+         id="moviesiFrame">
+      </iframe>
+    </main>
+
+    <main class="main-viewport" id="settingsFrame"> <!--Settings frame-->
+    <div class="settings-wrapper">
+        <div class="settings-nav">
+            <div class="settings-header">System</div>
+            <div class="settings-nav-item active" onclick="switchTab('general')">
+                <i data-lucide="settings-2" size="16"></i> All Settings
+            </div>
+        </div>
+
+        <div class="settings-content">
+            <div id="tab-general" class="tab-content active">
+                <div class="section-title">Flash v4 Settings</div>
+
+                <div class="setting-item-vertical">
+                    <div class="setting-info">
+                     <h3>Streaming Source</h3>
+                        <p>Choose which provider Flash v4 uses for the Movies tab.</p>
+                    </div>
+                    <div class="provider-grid" id="movie-provider-list">
+                        <button class="provider-btn active" onclick="setStreamingSource(this, 'https://novastream.vercel.app/')">Nova Stream</button>
+                        <button class="provider-btn" onclick="setStreamingSource(this, 'https://pstream.net/')">PStream</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
