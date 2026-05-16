@@ -37,6 +37,8 @@ const settingsFrame = document.getElementById("settingsFrame")
 const errorFrame = document.getElementById("errorFrame")
 const errorIFRAME = document.getElementById("errorIFRAME")
 const creditsFrame = document.getElementById("creditsFrame")
+const musicFrame = document.getElementById("musicFrame")
+const aiFrame = document.getElementById("aiFrame")
 
 // functions
 
@@ -53,6 +55,8 @@ function openPanel(p) { // function to open a specific view (view being block si
   errorFrame.style.display = "none";
   browserFrame.style.display = "none";
   creditsFrame.style.display = "none";
+  musicFrame.style.display = "none";
+  aiFrame.style.display = "none";
 
   if (panel === "games") {
     gamesFrame.style.display = "block"
@@ -67,6 +71,10 @@ function openPanel(p) { // function to open a specific view (view being block si
     browserFrame.style.display = "block"
   } else  if (panel === "credits") {
     creditsFrame.style.display = "block"
+  } else  if (panel === "music") {
+    musicFrame.style.display = "block"
+  } else  if (panel === "ai") {
+    aiFrame.style.display = "block"
   } else {
     errorFrame.style.display = "block"
     errorIFRAME.src = "error.html"
@@ -89,6 +97,20 @@ function setStreamingSource(element, url) {
     localStorage.setItem('selectedMovieSource', url);
     console.log("Source updated to: " + url);
 }
+
+function applySavedSource() {
+    // 1. Check if a source is saved in localStorage
+    const savedUrl = localStorage.getItem('selectedMovieSource');
+
+    // 2. If it exists, apply it to the iframe
+    if (savedUrl && moviesIFRAME) {
+        moviesIFRAME.src = savedUrl;
+        console.log("Saved source found and applied: " + savedUrl);
+    }
+}
+
+// Run this function immediately when the page loads
+window.addEventListener('DOMContentLoaded', applySavedSource);
 
 /* --- HOME FRAME EASTER EGG SCRIPT --- */
 document.addEventListener("DOMContentLoaded", () => {
@@ -252,3 +274,4 @@ function launchAboutBlank() {
 
 // init (keep thy section last)
 openPanel("home") // to reset all views cause ykyk
+applySavedSource()
