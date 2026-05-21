@@ -127,9 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "Designed in Cupertino. Sort of.",
         "Did some1 say movies?",
         "ok lets play games",
-        "ok rishon",
         "so no one saw v3 but that doesn't mean it doesn't exist because you haven't seen it so there isn't any proof against it...",
-        "Made by Server"
+        "Made by Server",
+        "PLEASE stop the wars"
     ];
 
     let index = 0;
